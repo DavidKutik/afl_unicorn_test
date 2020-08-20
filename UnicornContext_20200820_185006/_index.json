@@ -3,17 +3,17 @@
         "arch": "x64"
     },
     "regs": {
-        "rax": 140737488346624,
+        "rax": 140737488346560,
         "rbx": 0,
         "rcx": 1,
         "rdx": 93824992257168,
-        "rsp": 140737488346592,
-        "rbp": 140737488346656,
+        "rsp": 140737488346528,
+        "rbp": 140737488346592,
         "rsi": 93824992257168,
-        "rdi": 140737488346624,
-        "rip": 93824992236825,
+        "rdi": 140737488346560,
+        "rip": 93824992236881,
         "r8": 0,
-        "r9": 140737353685568,
+        "r9": 140737353656896,
         "r10": 93824992232736,
         "r11": 514,
         "r12": 93824992235760,
@@ -28,61 +28,62 @@
         "fs": 0,
         "gs": 0
     },
+    "regs_extended": null,
     "segments": [
         {
             "start": 93824992231424,
             "end": 93824992235520,
-            "name": "/home/dv/master/unicorn_test/a.out",
+            "name": "/home/dv/afl_unicorn_test/a.out",
             "permissions": {
                 "r": true,
                 "w": false,
                 "x": false
             },
-            "content_file": "8d442ca8204b858ba8aa19924dcbb3f9.bin"
+            "content_file": "e318946c348101818e039153c3e7fda9.bin"
         },
         {
             "start": 93824992235520,
             "end": 93824992239616,
-            "name": "/home/dv/master/unicorn_test/a.out",
+            "name": "/home/dv/afl_unicorn_test/a.out",
             "permissions": {
                 "r": true,
                 "w": false,
                 "x": true
             },
-            "content_file": "d7dfc6f5dd58a78d670b0eb5f0d28456.bin"
+            "content_file": "f16ffde96ea566466fca9e59f90a59c1.bin"
         },
         {
             "start": 93824992239616,
             "end": 93824992243712,
-            "name": "/home/dv/master/unicorn_test/a.out",
+            "name": "/home/dv/afl_unicorn_test/a.out",
             "permissions": {
                 "r": true,
                 "w": false,
                 "x": false
             },
-            "content_file": "8b41b9ff5f3d13a0b7922eaeb55ba21b.bin"
+            "content_file": "b6ffaacf07fb4e3cca50253fdb9abc78.bin"
         },
         {
             "start": 93824992243712,
             "end": 93824992247808,
-            "name": "/home/dv/master/unicorn_test/a.out",
+            "name": "/home/dv/afl_unicorn_test/a.out",
             "permissions": {
                 "r": true,
                 "w": false,
                 "x": false
             },
-            "content_file": "d2b43d29a13ff600f67d63e637a260a9.bin"
+            "content_file": "eb7fe2e471d4222b8540232d8e531c9e.bin"
         },
         {
             "start": 93824992247808,
             "end": 93824992251904,
-            "name": "/home/dv/master/unicorn_test/a.out",
+            "name": "/home/dv/afl_unicorn_test/a.out",
             "permissions": {
                 "r": true,
                 "w": true,
                 "x": false
             },
-            "content_file": "7078286a62ab2525268b074e285c0c74.bin"
+            "content_file": "1d77a384d00a246d9eae41e655a2ce26.bin"
         },
         {
             "start": 93824992251904,
@@ -93,11 +94,11 @@
                 "w": true,
                 "x": false
             },
-            "content_file": "b445aee2e6cc31caf0a921a67cc8b84f.bin"
+            "content_file": "0839e573623a43077e17cddd093cba11.bin"
         },
         {
-            "start": 140737351847936,
-            "end": 140737351999488,
+            "start": 140737351819264,
+            "end": 140737351970816,
             "name": "/usr/lib/libc-2.31.so",
             "permissions": {
                 "r": true,
@@ -107,8 +108,8 @@
             "content_file": "85d63d8e0f35ff31f5280101b9108b18.bin"
         },
         {
-            "start": 140737351999488,
-            "end": 140737353363456,
+            "start": 140737351970816,
+            "end": 140737353334784,
             "name": "/usr/lib/libc-2.31.so",
             "permissions": {
                 "r": true,
@@ -118,8 +119,8 @@
             "content_file": "041639549c9eb3345bbcaa0c57f4a4a5.bin"
         },
         {
-            "start": 140737353363456,
-            "end": 140737353666560,
+            "start": 140737353334784,
+            "end": 140737353637888,
             "name": "/usr/lib/libc-2.31.so",
             "permissions": {
                 "r": true,
@@ -129,8 +130,8 @@
             "content_file": "01867569e5760bc794866f1398293acf.bin"
         },
         {
-            "start": 140737353666560,
-            "end": 140737353670656,
+            "start": 140737353637888,
+            "end": 140737353641984,
             "name": "/usr/lib/libc-2.31.so",
             "permissions": {
                 "r": false,
@@ -140,41 +141,41 @@
             "content_file": ""
         },
         {
-            "start": 140737353670656,
-            "end": 140737353682944,
+            "start": 140737353641984,
+            "end": 140737353654272,
             "name": "/usr/lib/libc-2.31.so",
             "permissions": {
                 "r": true,
                 "w": false,
                 "x": false
             },
-            "content_file": "1f4545038490023bf672fdb2aaa7bec6.bin"
+            "content_file": "0c615d14bb10fd237f8e47d29cb800ee.bin"
         },
         {
-            "start": 140737353682944,
-            "end": 140737353695232,
+            "start": 140737353654272,
+            "end": 140737353666560,
             "name": "/usr/lib/libc-2.31.so",
             "permissions": {
                 "r": true,
                 "w": true,
                 "x": false
             },
-            "content_file": "b09942c8bbc6f0749f9aad16cbf0c717.bin"
+            "content_file": "b4fb39c5a00d553ff1bc82a5969253d3.bin"
         },
         {
-            "start": 140737353695232,
-            "end": 140737353719808,
+            "start": 140737353666560,
+            "end": 140737353691136,
             "name": "",
             "permissions": {
                 "r": true,
                 "w": true,
                 "x": false
             },
-            "content_file": "bd8b5a15e6d6d4ced4ce0b67ced2cdb6.bin"
+            "content_file": "6b27fd0bd3d5477d5b845b2d46d496b3.bin"
         },
         {
-            "start": 140737353928704,
-            "end": 140737353940992,
+            "start": 140737353920512,
+            "end": 140737353936896,
             "name": "[vvar]",
             "permissions": {
                 "r": true,
@@ -184,7 +185,7 @@
             "content_file": ""
         },
         {
-            "start": 140737353940992,
+            "start": 140737353936896,
             "end": 140737353945088,
             "name": "[vdso]",
             "permissions": {
@@ -192,7 +193,7 @@
                 "w": false,
                 "x": true
             },
-            "content_file": "233801f278820c4043e609ec28d4bc30.bin"
+            "content_file": "a0bcb2c685c48a02c948e51f56c0a0a0.bin"
         },
         {
             "start": 140737353945088,
@@ -236,7 +237,7 @@
                 "w": false,
                 "x": false
             },
-            "content_file": "5df1d6a72fb1b1719e0a0e8f0cb6b0f2.bin"
+            "content_file": "02db31a06a37ce0c6b00f8039983ddb6.bin"
         },
         {
             "start": 140737354125312,
@@ -247,7 +248,7 @@
                 "w": true,
                 "x": false
             },
-            "content_file": "3b674a8813bb2f575861b92140e841bb.bin"
+            "content_file": "8831f7bd8b281d9cfebdb1a3e3409e74.bin"
         },
         {
             "start": 140737354129408,
@@ -258,7 +259,7 @@
                 "w": true,
                 "x": false
             },
-            "content_file": "b79f4e130f58c309f5b25e54ebbf257a.bin"
+            "content_file": "657e479b919066b78898da68875454e4.bin"
         },
         {
             "start": 140737488216064,
@@ -269,7 +270,7 @@
                 "w": true,
                 "x": false
             },
-            "content_file": "9895ca38fcf4e78093fa96c6429ebf92.bin"
+            "content_file": "2cd4523e9ea5b7dc78cd4afb727953b7.bin"
         },
         {
             "start": 18446744073699065856,

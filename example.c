@@ -60,9 +60,9 @@ int img_load(struct image *img, uint8_t *data)
 #ifdef DEBUG
 		puts("no IMG");
 #endif
-	
 		return 1;
 	}
+
 	pos = 3;
 
 	// hight
@@ -73,26 +73,32 @@ int img_load(struct image *img, uint8_t *data)
 	w = *((uint32_t *)(data + pos));
 	pos += sizeof(uint32_t);
 
+	if (h * w == 0) {
+		return 1;
+	}
+
+
 	// name_len
 	name_len = *((uint32_t *)(data + pos));
 	pos += sizeof(uint32_t);
 #ifdef DEBUG
 	printf("%d\n", (unsigned int)name_len);
 #endif
+	if (name_len != 0) {
 	
-	// name
-	name = malloc(name_len);
-	if (name == NULL) {
-		return 1;
-	}
+		// name
+		name = malloc(name_len+1);
+		if (name == NULL) {
+			return 1;
+		}
 
-	//strncpy(name, (char *)&data[pos], name_len);
-	strcpy(name, (char *)&data[pos]);
-	pos +=name_len;
+		//strncpy(name, (char *)&data[pos], name_len);
+		strcpy(name, (char *)&data[pos]);
+		pos += name_len;
 #ifdef DEBUG
-	printf("%s\n", name);
+		printf("%s\n", name);
 #endif
-
+	}
 	// pixels
 	pixels = malloc(h*w);
 	if (pixels == NULL) {
@@ -129,7 +135,7 @@ void img_destroy(struct image *img)
 int main(int argc, char **argv)
 {
 	uint8_t *file_content = NULL;
-	struct image img;
+	struct image img = {0};
 	int retval;
 	
 	if (argc != 2) {
@@ -143,6 +149,7 @@ int main(int argc, char **argv)
 	}
 	retval = img_load(&img, file_content);
 	free(file_content);
+	
 	
 	//...
 	

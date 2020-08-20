@@ -4,18 +4,18 @@ import signal
 import struct
 
 
-from unicornafl import *
-from unicornafl.x86_const import *
+from unicorn import *
+from unicorn.x86_const import *
 
 import unicorn_loader
 
-CONTEXT_DIR = "/home/dv/master/unicorn_test/UnicornContext_20200818_182345/"
+CONTEXT_DIR = "/home/dv/afl_unicorn_test/UnicornContext_20200820_185006"
 unicorn_heap = None
 
 
 # Start and end of emulation
-START_ADDR    = 0x555555555519
-END_ADDR      = 0x55555555551e
+START_ADDR    = 0x0000555555555551
+END_ADDR      = 0x0000555555555556
 
 # Function hooks
 MALLOC_HOOK   = 0x5555555550c0
@@ -27,6 +27,7 @@ def unicorn_hook_instr(uc, address, size, user_data):
         size = uc.reg_read(UC_X86_REG_RDI)
         ret_val = unicorn_heap.malloc(size)
         uc.reg_write(UC_X86_REG_RAX, ret_val)
+        print("[HOOK]  malloc(0x{:016x}); returning 0x{:016x}".format(size, ret_val))
 
         # skip malloc, since it was handled above
         rsp      = uc.reg_read(UC_X86_REG_RSP)
@@ -42,7 +43,7 @@ def unicorn_hook_instr(uc, address, size, user_data):
         dest = uc.reg_read(UC_X86_REG_RDI)
         src = uc.reg_read(UC_X86_REG_RSI)
         n = uc.reg_read(UC_X86_REG_RDX)
-        print("[HOOK]  memcpy(dest={:016x}, src={:016x}, n={});".format(dest, src, n))
+        print("[HOOK]  memcpy(dest=0x{:016x}, src=0x{:016x}, n={});".format(dest, src, n))
 
         # copy
         src_content = bytes(uc.mem_read(src, n))
@@ -74,6 +75,7 @@ def unicorn_hook_instr(uc, address, size, user_data):
             i += 1
             if c == b'\x00':
                 break
+        print("         - copied {} bytes".format(i))
 
         # ret_val = dest
         uc.reg_write(UC_X86_REG_RAX, dest)
@@ -112,6 +114,12 @@ def main():
         f = open(args.input_file, 'rb')
         content = f.read()
         f.close()
+
+        """
+        if content[0:3] != b'IMG':
+            print("NO IMG")
+            return
+        """
 
         file_content_addr = unicorn_heap.malloc(len(content))
         uc.mem_write(file_content_addr, content)
