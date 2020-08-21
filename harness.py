@@ -123,7 +123,7 @@ def main():
 
         file_content_addr = unicorn_heap.malloc(len(content))
         uc.mem_write(file_content_addr, content)
-        uc.reg_write(UC_X86_REG_RDI, file_content_addr)
+        uc.reg_write(UC_X86_REG_RSI, file_content_addr)
 
     # Go
     print("Executing from 0x{0:016x} to 0x{1:016x}".format(START_ADDR, END_ADDR))
